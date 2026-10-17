@@ -1,0 +1,632 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #193a48;
+  background: #f4f6f2;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+.upload {
+  cursor: pointer;
+  border: 1px solid #bdd1ce;
+  border-radius: 12px;
+  padding: 12px 18px;
+  background: #fff;
+  color: #194e4c;
+  font-weight: 650;
+}
+button:hover,
+.upload:hover {
+  filter: brightness(0.95);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 4px solid #e4ad36;
+  outline-offset: 3px;
+}
+input,
+select,
+textarea {
+  border: 1px solid #b4c5c3;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  background: #fff;
+  color: #183b45;
+}
+label {
+  font-size: 14px;
+  font-weight: 650;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.primary {
+  background: #17665b;
+  color: #fff;
+  border-color: #17665b;
+  display: inline-block;
+}
+.big {
+  font-size: 21px;
+  padding: 17px 26px;
+}
+header {
+  height: 85px;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1b3c4515;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 30px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 750;
+}
+.brand span {
+  font-size: 20px;
+}
+.badge {
+  font-size: 15px;
+  background: #e2ece3;
+  padding: 9px 15px;
+  border-radius: 30px;
+  font-weight: 650;
+}
+.setup {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 45px 26px 60px;
+}
+.intro {
+  max-width: 720px;
+  margin-bottom: 30px;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #487b6d;
+}
+h1 {
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin: 14px 0 18px;
+}
+h2 {
+  font-size: 21px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+p {
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+.intro p {
+  font-size: 19px;
+  color: #547078;
+}
+.panel {
+  display: flex;
+  gap: 22px;
+  background: #fff;
+  border: 1px solid #dbe3dd;
+  border-radius: 18px;
+  padding: 28px;
+  margin: 22px 0;
+}
+.step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8efdf;
+  color: #426637;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.photo-intake p,
+.queue-heading p,
+.settings p {
+  color: #5a7177;
+  font-size: 15px;
+}
+.upload input {
+  display: none;
+}
+#uploading {
+  margin-left: 15px;
+}
+.queue-heading {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+}
+.queue-heading p {
+  max-width: 650px;
+}
+.queue-heading button {
+  flex-shrink: 0;
+}
+.albums {
+  display: grid;
+  gap: 18px;
+}
+.album-card {
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid #dbe3dd;
+  border-radius: 18px;
+  padding: 22px;
+}
+.album-card img {
+  width: 155px;
+  max-height: 215px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+.album-card .fields {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  gap: 14px;
+}
+.album-card textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.card-head strong {
+  font-size: 17px;
+}
+.card-actions {
+  display: flex;
+  gap: 5px;
+}
+.card-actions button {
+  padding: 7px 11px;
+}
+.back {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 14px;
+}
+.back img {
+  width: 120px;
+  max-height: 170px;
+}
+.back label {
+  flex: 1;
+}
+.album-card details {
+  margin-top: 14px;
+  color: #547078;
+}
+summary {
+  cursor: pointer;
+}
+details p {
+  font-size: 14px;
+}
+.muted {
+  font-size: 13px !important;
+  color: #617b7c;
+}
+.settings .fields {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto 1fr;
+  gap: 16px;
+  align-items: end;
+  margin: 22px 0;
+}
+.settings .wide {
+  grid-column: 1/-1;
+}
+.settings .big {
+  margin: 8px 0 12px;
+}
+.empty {
+  text-align: center;
+  border: 2px dashed #c7d7ce;
+  border-radius: 18px;
+  padding: 45px;
+  color: #6c8681;
+}
+.empty span {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 14px;
+}
+#notice {
+  padding: 18px 22px;
+  background: #fff0d7;
+  border: 1px solid #e1c18a;
+  border-radius: 12px;
+  line-height: 1.5;
+  margin: 22px 0;
+}
+#resume {
+  align-items: center;
+  justify-content: space-between;
+  background: #e7f0e4;
+}
+#resume p {
+  margin: 0;
+}
+.past {
+  margin: 26px 0;
+}
+.past button {
+  display: block;
+  margin: 12px 0;
+}
+.mission-tools {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.mission-tools details {
+  position: relative;
+}
+.adult-actions {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  display: grid;
+  gap: 10px;
+  min-width: 230px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px #0004;
+  color: #194e4c;
+}
+.child {
+  min-height: calc(100vh - 170px);
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 32px;
+  gap: 15px;
+}
+.child h1 {
+  font-size: clamp(42px, 5.8vw, 80px);
+  margin: 0;
+}
+.child-instruction {
+  font-size: clamp(22px, 2.3vw, 32px);
+  max-width: 900px;
+  margin: 0;
+  line-height: 1.35;
+}
+.symbol {
+  font-size: 85px;
+  line-height: 1.1;
+}
+.cover-panel {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  text-align: left;
+  background: #ffffff18;
+  border: 1px solid #ffffff25;
+  padding: 18px 26px;
+  border-radius: 18px;
+  max-width: 850px;
+}
+.cover-panel img {
+  width: clamp(140px, 23vh, 300px);
+  max-height: 32vh;
+  object-fit: contain;
+  border-radius: 7px;
+}
+.cover-panel span {
+  font-size: 19px;
+}
+.cover-panel h2 {
+  font-size: clamp(22px, 2.5vw, 34px);
+  max-width: 480px;
+  margin: 10px 0 0;
+}
+.progress {
+  width: min(850px, 95%);
+  margin-top: 10px;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+.rail {
+  height: 40px;
+  border-radius: 30px;
+  background: #0003;
+  border: 1px solid #fff6;
+  overflow: hidden;
+}
+#fill {
+  height: 100%;
+  background: #77ebce;
+  border-radius: 30px;
+  width: 0;
+  transition: width 1s linear;
+}
+#eta {
+  font-size: 18px;
+  margin: 10px 0 0;
+}
+.current-album {
+  font-size: 17px;
+  opacity: 0.8;
+  margin: 0;
+}
+.thinking {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+.thinking i {
+  background: #8be6db;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  animation: think 1.2s infinite;
+}
+.thinking i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.thinking i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.thinking span {
+  margin-left: 10px;
+  font-size: 20px;
+}
+@keyframes think {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-9px);
+  }
+}
+body.playing {
+  background: #153d53;
+  color: #fff;
+}
+body.playing header {
+  border-color: #ffffff20;
+}
+body.playing .badge {
+  background: #ffffff18;
+}
+body.playing .primary {
+  background: #fff;
+  color: #174e4c;
+  border-color: #fff;
+}
+body.playing header a {
+  pointer-events: none;
+}
+body.ready,
+body.done,
+body.finished {
+  background: #126448;
+}
+body.error,
+body.offline {
+  background: #882f38;
+}
+body.ripping .symbol {
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+footer {
+  height: 85px;
+  padding: 12px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+dialog {
+  border: 0;
+  border-radius: 24px;
+  max-width: 450px;
+  text-align: center;
+  padding: 36px;
+  color: #193a48;
+}
+dialog::backdrop {
+  background: #102b3ce8;
+}
+dialog h2 {
+  font-size: 30px;
+  margin-top: 20px;
+}
+dialog button {
+  display: block;
+  margin: 16px auto 0;
+}
+dialog p {
+  font-size: 18px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 750px) {
+  header {
+    height: 65px;
+  }
+  .brand span {
+    font-size: 17px;
+  }
+  .badge {
+    font-size: 12px;
+  }
+  .setup {
+    padding: 28px 16px;
+  }
+  .panel {
+    padding: 20px;
+    gap: 12px;
+  }
+  .album-card {
+    grid-template-columns: 95px 1fr;
+    padding: 16px;
+    gap: 15px;
+  }
+  .album-card img {
+    width: 95px;
+  }
+  .album-card .fields,
+  .settings .fields {
+    grid-template-columns: 1fr;
+  }
+  .settings .wide {
+    grid-column: auto;
+  }
+  .queue-heading {
+    display: block;
+  }
+  .queue-heading button {
+    margin-bottom: 18px;
+  }
+  .card-actions button {
+    padding: 7px;
+  }
+  .cover-panel {
+    padding: 12px;
+    gap: 15px;
+  }
+  .cover-panel img {
+    width: 30vw;
+    max-height: 27vh;
+  }
+  .child {
+    min-height: calc(100vh - 150px);
+    padding: 20px;
+    gap: 15px;
+  }
+  .child h1 {
+    font-size: 40px;
+  }
+  footer {
+    height: auto;
+    min-height: 85px;
+    padding: 12px 20px;
+  }
+  .mission-tools {
+    gap: 12px;
+  }
+  #checked {
+    display: none;
+  }
+  .symbol {
+    font-size: 65px;
+  }
+  #resume {
+    flex-wrap: wrap;
+  }
+}
+@media (max-height: 760px) and (min-width: 750px) {
+  header {
+    height: 65px;
+  }
+  .child {
+    min-height: calc(100vh - 135px);
+    gap: 10px;
+  }
+  .child h1 {
+    font-size: 50px;
+  }
+  .child-instruction {
+    font-size: 25px;
+  }
+  .symbol {
+    font-size: 55px;
+  }
+  .cover-panel img {
+    max-height: 25vh;
+    width: 180px;
+  }
+  .cover-panel h2 {
+    font-size: 26px;
+  }
+  .thinking {
+    margin: 0;
+  }
+  .rail {
+    height: 30px;
+  }
+  .big {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+  footer {
+    height: 70px;
+  }
+  .current-album {
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

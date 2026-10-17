@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.artifacts/
+node_modules/
+.env
+.env.*
+photos/
+music/
+*.mp3
+*.m4a
+*.wav
+*.flac

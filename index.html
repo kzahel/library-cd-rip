@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Library CD Rip</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">♫ <span>Library CD Rip</span></a
+      ><span id="saved" class="badge">Photo → CD → music</span>
+    </header>
+    <section id="setup" class="setup">
+      <div class="intro">
+        <span class="eyebrow">GROWN-UP SETUP</span>
+        <h1>Start with the pictures.</h1>
+        <p>
+          Photograph each CD cover. Check the order and names here, then hand
+          over to your helper.
+        </p>
+      </div>
+      <div id="notice" role="status" hidden></div>
+      <section id="resume" class="panel" hidden>
+        <div>
+          <h2 id="resumeTitle">Your saved mission</h2>
+          <p id="resumeDetail"></p>
+          <button id="editSaved">Edit remaining CD names</button>
+        </div>
+        <button id="resumeButton" class="primary">
+          ▶ Continue with sound
+        </button>
+      </section>
+      <section id="savedEditor" class="panel" hidden>
+        <div>
+          <h2>Correct names in the saved mission</h2>
+          <div id="savedFields"></div>
+          <button id="saveNames" class="primary">Save corrections</button>
+        </div>
+      </section>
+      <section class="panel photo-intake">
+        <span class="step">1</span>
+        <div>
+          <h2>Add front-cover photos</h2>
+          <p>
+            One picture per CD, earliest photo first. Add a back cover inside a
+            CD card if it has track names. For a multi-disc box, add a card for
+            each disc and name it “CD 1”, “CD 2”…
+          </p>
+          <label class="upload primary"
+            >＋ Choose photos<input
+              id="photos"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              multiple /></label
+          ><span id="uploading" role="status"></span>
+        </div>
+      </section>
+      <div class="queue-heading">
+        <div>
+          <h2><span class="step">2</span> Check the CD queue</h2>
+          <p>
+            Read the names from your photos. The app keeps these photos on this
+            computer; it does not recognise titles automatically.
+          </p>
+        </div>
+        <button id="sort">Sort by photo time</button>
+      </div>
+      <div id="albums" class="albums"></div>
+      <div id="empty" class="empty">
+        <span>▧</span>Your CD pictures will appear here.
+      </div>
+      <section class="panel settings">
+        <span class="step">3</span>
+        <div>
+          <h2>Choose the drive and start</h2>
+          <p>
+            Close Windows Media Player and other CD apps. Leave the tray empty
+            until the helper asks for the first picture.
+          </p>
+          <div class="fields">
+            <label>USB CD drive<select id="drive"></select></label
+            ><label id="encoderLabel"
+              >fre:ac drive<select id="encoder"></select></label
+            ><button id="refresh">↻ Find drives</button
+            ><label
+              >Spoken instructions<select id="language">
+                <option value="en-GB">English</option>
+                <option value="de-DE">Deutsch</option>
+              </select></label
+            ><label class="wide"
+              >Save MP3s in<input id="music" type="text" spellcheck="false"
+            /></label>
+          </div>
+          <p class="muted">
+            192 kbps MP3 · One verified CD at a time · No automatic eject ·
+            Progress checked every second
+          </p>
+          <button id="start" class="primary big">
+            ▶ Start the mission with sound
+          </button>
+          <p class="muted">
+            The next screen speaks and shows your daughter which picture to
+            choose. Test the computer volume before handing over.
+          </p>
+        </div>
+      </section>
+      <details class="past">
+        <summary>Previous missions</summary>
+        <div id="history"></div>
+      </details>
+      <button id="quit">Close the app</button>
+    </section>
+    <section id="mission" hidden>
+      <main class="child">
+        <div id="thinking" class="thinking" hidden>
+          <i></i><i></i><i></i><span id="thinkingText">I’m working on it…</span>
+        </div>
+        <div id="symbol" class="symbol" aria-hidden="true">💿</div>
+        <h1 id="childTitle">Getting ready…</h1>
+        <p id="childInstruction" class="child-instruction"></p>
+        <div id="coverPanel" class="cover-panel" hidden>
+          <img id="cover" alt="The next CD to put in" />
+          <div>
+            <span id="coverCaption"></span>
+            <h2 id="coverTitle"></h2>
+          </div>
+        </div>
+        <div id="progress" class="progress" hidden>
+          <div class="progress-label">
+            <span id="track"></span><strong id="percent">0%</strong>
+          </div>
+          <div
+            id="rail"
+            class="rail"
+            role="progressbar"
+            aria-label="CD copying progress"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div id="fill"></div>
+          </div>
+          <p id="eta"></p>
+        </div>
+        <p id="currentAlbum" class="current-album"></p>
+        <button id="repeat" class="primary big">🔊 Hear it again</button>
+      </main>
+      <footer>
+        <span id="checked">Checked every second</span>
+        <div class="mission-tools">
+          <button id="fullscreen">⛶ Full screen</button>
+          <details>
+            <summary id="adultLabel">Grown-up controls</summary>
+            <div class="adult-actions">
+              <p id="diagnostic"></p>
+              <button id="retry">Try again</button
+              ><button id="defer">Save this CD for last</button
+              ><button id="pause">Pause &amp; setup</button>
+            </div>
+          </details>
+        </div>
+      </footer>
+    </section>
+    <dialog id="soundGate">
+      <div class="symbol">🔊</div>
+      <h2>Ready to help?</h2>
+      <p>Press the button to hear your instructions.</p>
+      <button id="soundContinue" class="primary big">▶ Start with sound</button
+      ><button id="gateSetup">Grown-up setup</button>
+    </dialog>
+  </body>
+</html>
