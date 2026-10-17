@@ -1,0 +1,18 @@
+{
+  "cards": [
+    {
+      "title": "Stories - card 1",
+      "cover": "covers/first-album.jpg",
+      "albums": [
+        {"folder": "music/first-album", "label": "First story album"},
+        {"folder": "music/second-album", "label": "Second story album"}
+      ]
+    },
+    {
+      "title": "Stories - card 2",
+      "albums": [
+        {"folder": "music/third-album", "label": "More stories"}
+      ]
+    }
+  ]
+}

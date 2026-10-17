@@ -31,11 +31,16 @@ Keep the runtime folder with your music if you want to back up progress and orig
 
 You can also give an assistant front and back photos and ask it to prepare the queue. See [WORKFLOW.md](WORKFLOW.md). The assistant can transcribe names and use `prepare.py --metadata reviewed.json <front photos>`; a grown-up still reviews the queue before the drive starts. Each CD needs its own front-photo argument, in photo-time order. The reusable app remains fully usable without an assistant.
 
+## Put the albums on Yoto cards
+
+Follow [YOTO_WORKFLOW.md](YOTO_WORKFLOW.md) for grouping albums onto Make Your Own cards, preparing ordered uploads, linking physical cards with a phone and checking player downloads. `yoto_prepare.py` validates card limits, copies audio without changing the originals, generates actual-size contents labels and preserves upload/linking receipts on reruns. `print_yoto_labels.ps1` prints the A4 PDF at 100%, with an explicit printer/tray and a dry-run option. The Yoto stage is an assistant workflow; website uploads and NFC linking still use the official Yoto interfaces.
+
 ## Development
 
 ```powershell
 python bootstrap.py
 python app.py --no-browser
+python -m pip install -r requirements-yoto.txt
 python -m unittest discover -s tests -p 'test_*.py' -v
 npm ci
 npm run test:ui
